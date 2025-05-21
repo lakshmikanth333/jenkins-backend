@@ -16,4 +16,13 @@ The "Pipeline Utility Steps" plugin provides handy file/text operations (like re
                     }
 # above command "Reads package.json., Extracts the version field, Prints it (e.g., Version is: 1.0.0)."
 
+# We are installing docker on agent cause we are going to use a docker backend file 
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo systemctl enable --now docker
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker ec2-user
+
 
