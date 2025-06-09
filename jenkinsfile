@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'agent-3'}
+    agent { label 'agent-1'}
       environment {
         PROJECT = 'expense'
         COMPONENT = 'backend'
@@ -28,19 +28,19 @@ pipeline {
                     }
                 }
             }
-            stage('Docker build') {
-                steps {
-                    script {
-                        sh """
-
-                        docker build -t backend:1 .
-
-                        """
-                    }
-                }
+            
+        stage('Run Sonarqube') {
+            environment {
+                scannerHome = tool 'sonar-scanner-7.1';
+            }
+            steps {
+              withSonarQubeEnv('sonar-scanner-7.1') {
+                sh "${scannerHome}/bin/sonar-scanner"
+                // This is generic command works for any language
+              }
             }
         }
-
+        
         post {
             success {
                 echo "This has been succeed"
