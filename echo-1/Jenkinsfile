@@ -17,7 +17,7 @@ pipeline {
                 }
             }
         }
-        stage(trigger-echo-2) {
+        stage('trigger-echo-2') {
             when {
                 expression { params.ACTION == 'apply' }
             }
