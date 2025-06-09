@@ -23,6 +23,15 @@ pipeline {
 
                 }
             }
+            stage('dependents') {
+                steps {
+                    script {
+                        sh """
+                        npm install
+                        """
+                    }
+                }
+            }
         }
         post {
             success {
