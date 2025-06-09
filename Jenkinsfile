@@ -69,7 +69,7 @@ pipeline {
                 echo "pipeline failed"
             }
             always {
-                echo "doesnt matter too me, i alwys show up"
+                echo "doesnt matter too me, i alwys show up phew"
             }
         }
 }
