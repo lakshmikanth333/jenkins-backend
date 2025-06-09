@@ -70,6 +70,7 @@ pipeline {
             }
             always {
                 echo "doesnt matter too me, i alwys show up phew wheew a h yo"
+                deletedir()
             }
         }
 }
