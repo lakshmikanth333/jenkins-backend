@@ -1,0 +1,17 @@
+pipeline {
+    agent { label 'agent-1'}
+    options {
+        disableConcurrentBuilds()
+    }
+    stages {
+        stage (triggering) {
+            steps {
+                script {
+                    sh """
+                    echo "first echo"
+                    """
+                }
+            }
+        }
+    }
+}
