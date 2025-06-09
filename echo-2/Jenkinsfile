@@ -3,6 +3,9 @@ pipeline {
     options {
         disableConcurrentBuilds()
     }
+    parameters {
+        choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'select one')
+    }
     stages {
         stage ('triggering') {
             steps {
