@@ -49,6 +49,7 @@ pipeline {
             }
         
         }
+        }
         post {
             success {
                 echo "This has been succeed"
@@ -60,5 +61,5 @@ pipeline {
         }
 }
 
-}
+
 
