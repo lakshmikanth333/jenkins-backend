@@ -12,7 +12,6 @@ function addTransaction(amount,desc){
     var mysql = `INSERT INTO \`transactions\` (\`amount\`, \`description\`) VALUES ('${amount}','${desc}')`;
     con.query(mysql, function(err,result){
         if (err) throw err;
-        //console.log("Adding to the table should have worked");
     }) 
     return 200;
 }
