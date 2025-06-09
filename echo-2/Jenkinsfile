@@ -21,7 +21,7 @@ pipeline {
             expression {params.ACTION == 'apply'}
         }
         steps {
-            build job: 'echo-3', parametere: [string(name: 'ACTION', choices: ['apply', 'destroy'])], propagate: true
+            build job: 'echo-3', parameters: [string(name: 'ACTION', choices: ['apply', 'destroy'])], propagate: true
         }
        }
     }
