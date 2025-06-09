@@ -10,7 +10,7 @@ pipeline {
             timeout(time: 5, unit: 'MINUTES')
         }
 
-      }
+      
         stages {
             stage('Read version' ) {
                 steps {
@@ -34,5 +34,5 @@ pipeline {
                 echo "doesnt matter too me, i alwys show up"
             }
         }
-
 }
+
