@@ -25,4 +25,8 @@ sudo systemctl start docker
 sudo systemctl enable docker
 sudo usermod -aG docker ec2-user 
 
+* If you wanna push the created docker image to the ECR then install "AWS steps" plugin,
+also use "withAWS(region: 'us-east-1', credentials: 'aws-creds') in pipeline. which is usefull to make comm between our jenkins and aws 
+
+
 

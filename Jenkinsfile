@@ -41,6 +41,25 @@ pipeline {
                     }
                 }
             }
+            stage('rename the tag') {
+                steps {
+                    script {
+                        sh """
+                        docker tag backend:1.0 lakshmikanth333/nodedocker:2.0
+                        """
+                    }
+                }
+            }
+            stage('push') {
+                steps {
+                    script {
+                        sh """
+                        docker push lakshmikanth333/nodedocker:2.0
+                        """
+                    }
+                
+                }
+            }
         }
         post {
             success {
