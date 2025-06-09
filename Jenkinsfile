@@ -4,6 +4,7 @@ pipeline {
         PROJECT = 'expense'
         COMPONENT = 'backend'
         appVersion = ''
+      }
         options {
             disableConcurrentBuilds()
             timeout(time: 5, unit: 'MINUTES')
