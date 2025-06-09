@@ -3,15 +3,36 @@ pipeline {
     options {
         disableConcurrentBuilds()
     }
+    parameters {
+        choice(name: 'ACTION', choices: ['apply', 'destroy'], defaultvalue: 'apply', description: 'select one')
+    }
     stages {
         stage (triggering) {
             steps {
+                input message: 'Do you want to deploy', ok: 'yes please'
                 script {
                     sh """
                     echo "first echo"
                     """
                 }
             }
+        }
+        stage(trigger-echo-2) {
+            when {
+                expression { params.ACTION == 'apply' }
+            }
+            steps {
+                build job: 'echo-2', parameters: [string(name: 'ACTION', value: 'apply')], propagate: true
+            }
+        }
+    
+    }
+    post {
+        success {
+            echo "success"
+        }
+        failure {
+            echo "failure"
         }
     }
 }
