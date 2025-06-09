@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'agent-1'}
+    agent { label 'agent-1' }
       environment {
         PROJECT = 'expense'
         COMPONENT = 'backend'
@@ -18,4 +18,16 @@ pipeline {
                 }
             }
         }
+        post {
+            success {
+                echo "pipeline succeeded"
+            }
+            failure {
+                echo "pipeline failed"
+            }
+            always {
+                echo "doesnt matter too me, i alwys show up"
+            }
+        }
+
 }
