@@ -17,37 +17,5 @@ pipeline {
 
                 }
             }
-            stage('Installing dependencies') {
-                steps {
-                    script {
-                        sh """
-
-                        npm install
-
-                        """       
-                    }
-                }
-            }
-            stage('Docker build') {
-                steps {
-                    script {
-                        sh """
-
-                        docker build -t backend:1 .
-
-                        """
-                    }
-                }
-            }
-        }
-
-        post {
-            success {
-                echo "This has been succeed"
-            }
-            failure {
-                echo "This has been failed"
-            }
-            
         }
 }
