@@ -9,7 +9,6 @@ pipeline {
     stages {
         stage ('triggering') {
             steps {
-                input message: 'Do you want to deploy', ok: 'Yes please'
                 script {
                     sh """
                     echo "first echo"
