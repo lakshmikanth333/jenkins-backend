@@ -7,9 +7,9 @@ pipeline {
         choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'select one')
     }
     stages {
-        stage (triggering) {
+        stage ('triggering') {
             steps {
-                input message: 'Do you want to deploy', ok: 'yes please'
+                input message: 'Do you want to deploy', ok: 'Yes please'
                 script {
                     sh """
                     echo "first echo"
